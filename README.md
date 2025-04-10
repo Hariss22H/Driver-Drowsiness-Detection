@@ -1,52 +1,97 @@
-# Driver-Drowsiness-Detection
+# 💤 Driver Drowsiness Detection System
 
-**Introduction**
-
-The Driver Drowsiness Detection System is designed to enhance road safety by detecting signs of driver fatigue and alerting them in real time. The system leverages computer vision techniques using Python and machine learning models to analyze facial features and predict drowsiness.
-
-**Features**
-
->Real-time video feed analysis.
-
->Detects eye closure, yawning, and head position to identify drowsiness.
-
->Audio alert system to notify the driver when signs of fatigue are detected.
-
->User-friendly interface for easy setup and control.
+> Real-time drowsiness alerting system using computer vision and speech synthesis to enhance road safety.
 
 
-**Algorithm and Process**
 
->The system uses a Convolutional Neural Network (CNN) model for detecting facial landmarks.
+## 📌 Features
+- Real-time eye aspect ratio (EAR) analysis
+- Detects drowsiness using facial landmarks
+- Visual alerts on screen
+- Audio alerts using text-to-speech engine
 
->The Eye Aspect Ratio (EAR) is calculated to identify closed eyes.
+---
 
->The Mouth Aspect Ratio (MAR) helps detect yawning.
+## 🧠 How It Works
+- Uses **Dlib**'s 68-point facial landmark predictor.
+- Calculates **Eye Aspect Ratio (EAR)** for both eyes.
+- Triggers alert when EAR < `0.25` for a sustained time.
 
->When EAR drops below a defined threshold for a set duration, the system triggers an alert.
+---
 
-**Key Libraries Used**
+## 🛠️ Requirements
 
->OpenCV – For image and video processing.
+Install all dependencies with:
+```bash
+pip install 
+opencv-python
+dlib
+pyttsx3
+scipy
+imutils
+```
 
->dlib – For face detection and landmark identification.
 
->imutils – For facial region alignment.
+---
+## 🗂️ Project Structure
+```bash
+Drowsiness-Detection/
 
->pygame – For audio alerts.
 
-**Evaluation Metrics**
+├── main.py   # Main detection script
+│
+├── requirements.txt # List of dependencies
+│
+├── shape_predictor_68_face_landmarks.dat # Dlib 68-point facial landmark model
+│
+├── dataset/ # Optional: Test images or video samples
+│
+├── utils/ # Helper functions (EAR calculation, etc.)
+│
+├── resources/ # Alert sounds, icons, and assets
+│
+└── README.md # Project documentation
+```
 
->Accuracy: Measures model performance in detecting drowsiness.
+---
+## ▶️ Usage
+Clone the repository:
 
->Precision/Recall: Ensures minimal false positives and negatives.
+git clone [https://github.com/yourusername/drowsiness-detection](https://github.com/Hariss22H/Driver-Drowsiness-Detection)
 
->Response Time: Ensures alerts are triggered promptly.
+Download the dlib shape predictor from here, extract it and place in the project directory.
 
-**Future Enhancements**
+Run the detection:
+python main.py
 
->Integration with car control systems for automatic braking or lane correction.
+Press q to exit the program.
 
->Adding mobile app integration for enhanced accessibility.
+---
 
->Improving accuracy under low-light conditions.
+## 📈 Metrics
+EAR Threshold: 0.25
+
+Real-time feedback speed: ~30 FPS (depends on webcam)
+
+Accuracy: High in good lighting conditions
+
+---
+
+## 🔮 Future Improvements
+Adaptive threshold tuning using ML
+
+Night vision support
+
+Yawning detection via mouth aspect ratio
+
+Mobile deployment
+
+---
+
+## 👨‍💻 Author
+
+**Shaik Harriss Razvi**  
+Student @ Alliance University  
+Machine Learning & OpenCV Enthusiast  
+
+🔗 [LinkedIn](https://www.linkedin.com/in/hariss-razvi-shaik-31b037333/) 
